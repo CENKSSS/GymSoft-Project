@@ -1,0 +1,35 @@
+body.profil-page {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #fca420, #e76f51);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.profil-container {
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: left;
+    width: 400px;
+    line-height: 1.8;
+}
+
+.profil-container h2 {
+    text-align: center;
+    color: #f75c03;
+    margin-bottom: 20px;
+}
+
+.profil-container p {
+    font-size: 16px;
+    color: #333;
+}
+
+.profil-container strong {
+    color: #000;
+}

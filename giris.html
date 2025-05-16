@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap - Navitas Gym</title>
+    <link rel="stylesheet" href="giris.css">
+</head>
+<body class="giris-page">
+
+    <div class="giris-container">
+        <h1>Giriş Yap</h1>
+        <form id="loginForm" class="giris-form">
+            <input type="email" id="email" placeholder="Email adresiniz" required>
+            <input type="password" id="password" placeholder="Şifreniz" required>
+            <button type="submit" id="loginBtn" class="btn">Giriş Yap</button>
+        </form>
+        <p class="link">Hesabın yok mu? <a href="kayit.html">Kayıt Ol</a></p>
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="giris.js"></script>
+</body>
+</html>

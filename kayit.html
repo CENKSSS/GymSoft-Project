@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kayıt Ol</title>
+  <link rel="stylesheet" href="kayit.css" />
+</head>
+<body class="giris-page">
+  <div class="giris-container">
+    <h1>Kayıt Ol</h1>
+    <form class="giris-form" id="registerForm">
+      <input type="text" id="isim" placeholder="Adınız" required />
+      <input type="text" id="soyisim" placeholder="Soyadınız" required />
+      <input type="email" id="email" placeholder="E-posta" required />
+      <input type="password" id="password" placeholder="Şifre" required />
+      <input type="tel" id="telefon" placeholder="Cep Telefonu" required />
+      <button type="submit" class="btn">Kayıt Ol</button>
+    </form>
+    <div class="link">
+      Zaten hesabın var mı? <a href="giris.html">Giriş Yap</a>
+    </div>
+  </div>
+
+  <script type="module">
+    import { auth, db } from './firebase.js';
+    import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    document.getElementById("registerForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const isim = document.getElementById("isim").value;
+      const soyisim = document.getElementById("soyisim").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const telefon = document.getElementById("telefon").value;
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await setDoc(doc(db, "kullanicilar", email), {
+          isim: isim,
+          soyisim: soyisim,
+          email: email,
+          cepTelefonu: telefon,
+          rol: "uye"
+        });
+        alert("Kayıt başarılı!");
+        window.location.href = "giris.html";
+      } catch (error) {
+        alert("Hata: " + error.message);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Personal Trainer – Program Yaz</title>
+  <script type="module" src="admin.js"></script>
+  <link rel="stylesheet" href="admin.css"> 
+</head>
+<body>
+  <div class="admin-container">
+    <h1>Program Yaz</h1>
+    <p>Üyelere haftalık antrenman programları atamak için aşağıdan hareketleri seçin, gününü belirleyin ve programı kaydedin.</p>
+
+    <select id="uyeSec" required>
+      <option value="">Üyeyi Seçin</option>
+    </select>
+
+    <select id="gun">
+      <option disabled selected>Gün Seç</option>
+      <option value="Pazartesi">Pazartesi</option>
+      <option value="Salı">Salı</option>
+      <option value="Çarşamba">Çarşamba</option>
+      <option value="Perşembe">Perşembe</option>
+      <option value="Cuma">Cuma</option>
+      <option value="Cumartesi">Cumartesi</option>
+      <option value="Pazar">Pazar</option>
+    </select>
+
+    <div class="hareketler" id="hareketListesi"></div>
+
+    <div class="sepet">
+      <h3>Hazırlanan Program:</h3>
+      <ul id="sepetListe"></ul>
+    </div>
+
+    <button class="btn" id="gunuTabloyaEkleBtn" style="background:#f4a261;">Günü Tabloya Ekle</button>
+    <button class="btn" id="gonderBtn">Programı Kaydet</button>
+
+    <table class="haftalik-tablo" id="programTablosu">
+      <thead>
+        <tr>
+          <th>Pazartesi</th>
+          <th>Salı</th>
+          <th>Çarşamba</th>
+          <th>Perşembe</th>
+          <th>Cuma</th>
+          <th>Cumartesi</th>
+          <th>Pazar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="tabloSatir"></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Üye maillerini getiren script (firebase.js'deki db kullanılarak) -->
+  <script type="module">
+    import { db } from './firebase.js';
+    import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    async function loadUsers() {
+      const uyeDropdown = document.getElementById("uyeSec");
+      const querySnapshot = await getDocs(collection(db, "kullanicilar"));
+      
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+        if (data.rol === "uye" && data.email) {
+          const option = document.createElement("option");
+          option.value = data.email;
+          option.textContent = data.email;
+          uyeDropdown.appendChild(option);
+        }
+      });
+    }
+
+    loadUsers();
+  </script>
+</body>
+</html>

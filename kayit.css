@@ -1,0 +1,62 @@
+body.giris-page {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #fca420, #e76f51);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .giris-container {
+    background-color: #fff;
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 350px;
+  }
+  
+  .giris-container h1 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .giris-form input {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .giris-form .btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #fca420;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .giris-form .btn:hover {
+    background-color: #e67926;
+  }
+  
+  .link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .link a {
+    color: #e76f51;
+    font-weight: bold;
+  }
+  

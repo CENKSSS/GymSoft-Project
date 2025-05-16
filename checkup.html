@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Navitas Gym – Medical Check-Up</title>
+  <link rel="stylesheet" href="checkup.css">
+</head>
+<body>
+
+  <!-- ===== Hizmet Kartları ===== -->
+  <div class="services">
+    <!-- Diğer kartlarınız burada -->
+    <div class="service-card" id="medical-checkup">
+      <img src="fotograflar/randevu.jpg" alt="Medical Check-Up">
+      <div class="card-label">
+        <h3>Medical Check-Up Randevusu İçin Tıklayınız</h3>
+        <p>Randevu</p>
+      </div>
+    </div>
+    <!-- Diğer kartlarınız burada -->
+  </div>
+
+
+
+  <!-- ===== RANDEVU MODALİ ===== -->
+  <div id="appointmentModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Randevu Al</h2>
+      <label for="appointmentDate">Tarih:</label>
+      <input type="date" id="appointmentDate">
+      <label for="appointmentTime">Saat:</label>
+      <input type="time" id="appointmentTime">
+      <button id="saveAppointmentBtn">Kaydet</button>
+    </div>
+  </div>
+
+  <!-- ===== RANDEVULARIM ===== -->
+  <section id="my-appointments">
+    <h2>Randevularım</h2>
+    <ul id="appointmentsList"></ul>
+  </section>
+
+
+  <!-- ===== JS: RANDEVU İŞLEMLERİ ===== -->
+  <script>
+    const modal      = document.getElementById('appointmentModal');
+    const openBtn    = document.getElementById('medical-checkup');
+    const closeBtn   = modal.querySelector('.close');
+    const saveBtn    = document.getElementById('saveAppointmentBtn');
+    const dateInput  = document.getElementById('appointmentDate');
+    const timeInput  = document.getElementById('appointmentTime');
+    const listEl     = document.getElementById('appointmentsList');
+    let appointments = [];
+
+    // Geçmiş tarihi engelle
+    dateInput.min = new Date().toISOString().split('T')[0];
+
+    // Modal aç/kapat
+    openBtn.onclick  = () => modal.style.display = 'flex';
+    closeBtn.onclick = () => modal.style.display = 'none';
+    window.onclick    = e => { if (e.target === modal) modal.style.display = 'none'; };
+
+    // Randevu kaydet
+    saveBtn.onclick = () => {
+      if (!dateInput.value || !timeInput.value) {
+        return alert('Tarih ve saat seçmelisiniz.');
+      }
+      appointments.push({ date: dateInput.value, time: timeInput.value });
+      localStorage.setItem('appointments', JSON.stringify(appointments));
+      modal.style.display = 'none';
+      renderAppointments();
+    };
+
+    // Randevuları listele
+    function renderAppointments() {
+      appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+      listEl.innerHTML = '';
+      appointments.forEach((apt, i) => {
+        const li = document.createElement('li');
+        li.textContent = `${apt.date} ${apt.time}`;
+        const btn = document.createElement('button');
+        btn.textContent = 'İptal';
+        btn.onclick = () => cancelAppointment(i);
+        li.appendChild(btn);
+        listEl.appendChild(li);
+      });
+    }
+
+    // Randevu iptal
+    function cancelAppointment(i) {
+      if (!confirm('Bu randevuyu iptal etmek istediğinize emin misiniz?')) return;
+      appointments.splice(i, 1);
+      localStorage.setItem('appointments', JSON.stringify(appointments));
+      renderAppointments();
+    }
+
+    document.addEventListener('DOMContentLoaded', renderAppointments);
+  </script>
+</body>
+</html>

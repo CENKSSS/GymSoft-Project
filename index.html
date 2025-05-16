@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SoftGym</title>
+
+  <!-- Ana stil dosyası -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Font Awesome ikonları -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="giris-body">
+
+  <!-- ========== HEADER / NAVBAR ========== -->
+  <header class="softgym-header">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="fotograflar/logos.png" alt=" Logo" />
+      </div>
+
+      <!-- Navigasyon Menü -->
+      <nav class="nav-menu">
+        <a href="index.html">ANA SAYFA</a>
+        <a href="#hizmetlerimiz">HİZMETLERİMİZ</a>
+        <a href="#fitness-rehberi">FİTNESS REHBERİ</a>
+        <a href="#iletisim">İLETİŞİM</a>
+        <a href="#destek">DESTEK</a>
+      </nav>
+
+      <!-- Giriş / Kayıt Butonları -->
+      <div class="auth-buttons" id="authButtons">
+        <a href="giris.html" class="btn">Giriş Yap</a>
+        <a href="kayit.html" class="btn">Kayıt Ol</a>
+      </div>
+
+      <!-- Kullanıcı Dropdown -->
+      <div class="dropdown" id="userDropdown" style="display: none;">
+        <button class="dropbtn">Hoş geldin, <span id="kullaniciIsim" class="kullanici-adi"></span></button>
+        <div class="dropdown-content" id="menuContent">
+          <!-- Dinamik içerik eklenecek -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========== HERO (VİDEO) ALANI ========== -->
+  <div class="hero-section">
+    <div class="video-container">
+      <iframe 
+        src="https://www.youtube.com/embed/Yko3GMseY40?autoplay=1&mute=1&loop=1&playlist=Yko3GMseY40&rel=0&controls=0&modestbranding=1&showinfo=0" 
+        frameborder="0" 
+        allow="autoplay; encrypted-media" 
+        allowfullscreen>
+      </iframe>
+
+      <!-- Video Üzeri Giriş Yazıları -->
+      <div class="giris-container">
+        <h1 class="giris-baslik">Soft Sport Center</h1>
+        <h3 class="alt-metin">
+          Özlediğiniz konfor ve beklentilerinizin üzerinde hizmet anlayışıyla Soft Sport Center
+          standartlarınızı çok yükseltecek.
+        </h3>
+
+        <!-- Alt Kutu Linkleri -->
+        <div class="anasayfa-kutular">
+          <a href="#hizmetlerimiz" class="kutucuk">HİZMETLERİMİZ</a>
+          <a href="#iletisim" class="kutucuk">İLETİŞiM</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== BİZ KİMİZ ALANI ========== -->
+  <section class="features-section">
+    <div class="feature-box">
+      <div class="feature-icon">🎯</div>
+      <h3>AMACIMIZ</h3>
+      <div class="feature-line"></div>
+      <p>Sağlıklı yaşamı yaymak ve kişisel hedeflere ulaşmayı destekleyen bir ortam sağlamak.</p>
+    </div>
+    <div class="feature-box grey">
+      <div class="feature-icon">🚀</div>
+      <h3>VİZYONUMUZ</h3>
+      <div class="feature-line"></div>
+      <p>Her bireyin potansiyelini en üst seviyeye çıkaracağı, modern ve özgün bir sistem sunmak.</p>
+    </div>
+    <div class="feature-box">
+      <div class="feature-icon">👥</div>
+      <h3>EKİBİMİZ</h3>
+      <div class="feature-line"></div>
+      <p>Uzman antrenörler ve sağlık profesyonellerinden oluşur.</p>
+    </div>
+    <div class="feature-box grey">
+      <div class="feature-icon">📩</div>
+      <h3>İLETİŞİM</h3>
+      <div class="feature-line"></div>
+      <p>info@softsport.com üzerinden her zaman bize ulaşabilirsiniz.</p>
+    </div>
+  </section>
+
+  <!-- ========== HİZMETLERİMİZ GALERİSİ ========== -->
+  <section id="hizmetlerimiz" class="photo-section">
+    <div class="photo-gallery">
+      <div class="photo-item">
+        <a href="fitness.html">
+          <img src="fotograflar/fitness.png" alt="Fitness" />
+          <div class="caption active">
+            <h3>Fitness</h3>
+            <p>Sports</p>
+          </div>
+        </a>
+      </div>
+      <div class="photo-item">
+        <a href="checkup.html">
+          <img src="fotograflar/checkup.png" alt="Medical Check-Up" />
+          <div class="caption">
+            <h3>Medical Check-Up</h3>
+            <p>Randevu</p>
+          </div>
+        </a>
+      </div>
+      <div class="photo-item">
+        <a href="pilates.html">
+          <img src="fotograflar/pilates.png" alt="Pilates" />
+          <div class="caption">
+            <h3>Pilates</h3>
+            <p>Sports</p>
+          </div>
+        </a>
+      </div>
+      <div class="photo-item">
+        <a href="masaj.html">
+          <img src="fotograflar/spa.png" alt="Masaj" />
+          <div class="caption">
+            <h3>Masaj</h3>
+            <p>Spa</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-logo">Soft SPORTS</div>
+
+      <div class="footer-contact">
+        <p><strong>İletişim:</strong></p>
+        <p>📞 +90 555 123 4567</p>
+        <p>📧 info@softsport.com</p>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://instagram.com/"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://Facebook.com/"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="https://x.com/"><i class="fab fa-twitter"></i> X (Twitter)</a>
+        <a href="https://youtube.com/"><i class="fab fa-youtube"></i> YouTube</a>
+      </div>
+
+      <div class="footer-copyright">
+        © 2025 Soft Sports. Tüm Hakları Saklıdır.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== FIREBASE & KULLANICI KONTROLÜ ========== -->
+  <script type="module" src="firebase.js"></script>
+  <script type="module">
+    import { auth } from './firebase.js';
+    import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const db = getFirestore();
+    const dd = document.getElementById("userDropdown");
+    const ab = document.getElementById("authButtons");
+    const menuContent = document.getElementById("menuContent");
+
+    // Kullanıcı giriş kontrolü
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        dd.style.display = 'block';
+        ab.style.display = 'none';
+
+        const docRef = doc(db, "kullanicilar", user.email);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          document.getElementById("kullaniciIsim").textContent = data.isim.toUpperCase();
+
+          // Admin paneli
+          if (data.rol === "admin") {
+            menuContent.innerHTML = `
+              <a href="profil.html">Profilim</a>
+              <a href="admin.html">Program Yaz</a>
+              <a href="ayarlar.html">Ayarlar</a>
+              <a href="#" id="logoutBtn">Çıkış Yap</a>
+            `;
+          } else {
+            // Üye paneli
+            menuContent.innerHTML = `
+              <a href="profil.html">Profilim</a>
+              <a href="uyeprogram.html">Programlarım</a>
+              <a href="ayarlar.html">Ayarlar</a>
+              <a href="#" id="logoutBtn">Çıkış Yap</a>
+            `;
+          }
+        }
+      } else {
+        dd.style.display = 'none';
+        ab.style.display = 'flex';
+      }
+    });
+
+    // Çıkış işlemi
+    document.addEventListener("click", (e) => {
+      if (e.target.id === "logoutBtn") {
+        e.preventDefault();
+        signOut(auth).then(() => window.location.href = "index.html");
+      }
+    });
+  </script>
+</body>
+</html>
